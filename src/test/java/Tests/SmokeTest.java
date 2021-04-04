@@ -50,5 +50,26 @@ public class SmokeTest extends TestBase {
 
    }
 
+   @Test
+   public void verifyingSignUpPageIsDisplayed() throws InterruptedException {
+      getDriver().get("https://trello.com");
+
+      // Go to Sign-up Page
+      By loc_signup_button = By.linkText("Sign up");
+      WebElement signupButton = getDriver().findElement(loc_signup_button);
+      signupButton.click();
+
+      Thread.sleep(1000);
+
+      // Grab the signup banner text
+      By loc_signup_text_banner = By.xpath("(//h1)[1]");
+      WebElement signUpBanner = getDriver().findElement(loc_signup_text_banner);
+
+      String actualText = signUpBanner.getText();
+
+      Assert.assertEquals(actualText,"Sign up for your account");
+
+   }
+
 
 }
