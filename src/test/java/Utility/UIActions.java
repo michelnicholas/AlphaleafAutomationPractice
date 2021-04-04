@@ -1,4 +1,4 @@
-package Base;
+package Utility;
 
 public class UIActions {
 }
