@@ -26,7 +26,7 @@ public abstract class TestBase {
     // AfterMethod
     @AfterMethod
     public void cleanUpDriver(){
-        if(driver!=null){
+        if(driver != null){
             driver.quit();
         }
 
