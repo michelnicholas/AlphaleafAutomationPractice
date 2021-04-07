@@ -36,6 +36,4 @@ public class TrelloHomePage {
         WebElement signUpLink = driver.findElement(loc_signup_link);
         signUpLink.click();
     }
-
-
 }

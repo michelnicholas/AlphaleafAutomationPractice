@@ -21,8 +21,4 @@ public class SignUpPage {
         WebElement signupTextElement = driver.findElement(loc_signup_banner);
         return  signupTextElement.isDisplayed();
     }
-
-
-
-
 }
