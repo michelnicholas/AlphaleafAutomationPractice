@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import javax.swing.*;
 
 public class HomePage {
     // ---- Fields: Data or list of element locations
@@ -41,6 +40,7 @@ public class HomePage {
         signUpLink.click();
     }
 
+
     public void goToPricingPage(){
         WebElement pricingLinkElem = driver.findElement(loc_pricing_link);
         Actions actions = new Actions(driver);
@@ -49,4 +49,5 @@ public class HomePage {
 
 
     }
+
 }
