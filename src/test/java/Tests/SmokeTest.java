@@ -1,6 +1,10 @@
 package Tests;
 
 import Base.TestBase;
+import Pages.LoginPage;
+import Pages.SignUpPage;
+import Pages.TrelloHomePage;
+import org.apache.commons.logging.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -8,68 +12,58 @@ import org.testng.annotations.Test;
 
 public class SmokeTest extends TestBase {
 
+
    @Test
-   public void verifyHomePageIsDisplayed(){
-      getDriver().get("https://trello.com");
-
-      // Banner Text Element
-      By homepage_banner = By.xpath("//h1");
-      WebElement homepageBannerElement = getDriver().findElement(homepage_banner);
-
-      boolean isBannerVisible = homepageBannerElement.isDisplayed(); // isBannerVisible --> true
-
-      // Assertions
-      Assert.assertTrue(isBannerVisible);
-
-
-
-
+   public void verifyHomepageIsDisplayed(){
+      TrelloHomePage homePage = new TrelloHomePage((getDriver()));
+      homePage.open();
+      boolean result = homePage.isPageVisible();
+      Assert.assertTrue(result);
 
 
    }
 
    @Test
    public void verifyLoginPageIsDisplayed() throws InterruptedException {
-      getDriver().get("https://trello.com");
+      // Test Data / Constructors / Creating Objects
+      LoginPage loginPage = new LoginPage(getDriver());
+      TrelloHomePage homePage = new TrelloHomePage(getDriver());
 
-      // Go to login page
-      By loc_login_link = By.linkText("Log in");
-      WebElement loginElement = getDriver().findElement(loc_login_link);
-      loginElement.click();
 
+
+      // Test Steps / Methods to test
+      homePage.open();
+      homePage.gotoToLoginPage();
       Thread.sleep(1000);
+      boolean result = loginPage.isLoginPageVisible();
 
-      // Grab login banner text
-      By loc_login_banner = By.xpath("//h1");
-      WebElement loginBanner = getDriver().findElement(loc_login_banner);
 
-      // Extracting text
-      String actualText = loginBanner.getText();
+      // Assertions / results for test cases
+      Assert.assertTrue(result);
 
-      Assert.assertEquals(actualText,"Log in to Trello");
 
    }
 
    @Test
    public void verifyingSignUpPageIsDisplayed() throws InterruptedException {
-      getDriver().get("https://trello.com");
+      // Test Data / Object / Constructors
+      TrelloHomePage homePage = new TrelloHomePage(getDriver());
+      SignUpPage signUpPage = new SignUpPage(getDriver());
 
-      // Go to Sign-up Page
-      By loc_signup_button = By.linkText("Sign up");
-      WebElement signupButton = getDriver().findElement(loc_signup_button);
-      signupButton.click();
 
-      Thread.sleep(1000);
+      // Test Steps / Method to Test
+      homePage.open();
+      homePage.goToSignUpPage();
+      Thread.sleep(2000);
+      boolean result  = signUpPage.isSignUpPageVisible();
 
-      // Grab the signup banner text
-      By loc_signup_text_banner = By.xpath("(//h1)[1]");
-      WebElement signUpBanner = getDriver().findElement(loc_signup_text_banner);
 
-      String actualText = signUpBanner.getText();
-
-      Assert.assertEquals(actualText,"Sign up for your account");
+      // Assertions / Test results
+      Assert.assertTrue(result);
 
    }
+
+
 
 
 }
