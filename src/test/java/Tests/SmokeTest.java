@@ -81,8 +81,4 @@ public class SmokeTest extends TestBase {
       Assert.assertTrue(result);
 
    }
-
-
-
-
 }
