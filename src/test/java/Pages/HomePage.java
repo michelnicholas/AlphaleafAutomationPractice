@@ -14,6 +14,8 @@ public class HomePage {
     private By loc_login_link = By.linkText("Log in");
     private By loc_signup_link = By.linkText("Sign up");
     private By loc_pricing_link = By.xpath("//a[text()='Pricing']");
+    private By loc_about_link = By.xpath("//a[text()='About']");
+
 
     // --- Constructor
     public HomePage(WebDriver inputDriver){
@@ -46,6 +48,20 @@ public class HomePage {
         Actions actions = new Actions(driver);
         actions.moveToElement(pricingLinkElem).perform();
         pricingLinkElem.click();
+    }
+
+    public void goToAboutPage(){
+        WebElement aboutLinkElem = driver.findElement(loc_about_link);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(aboutLinkElem).perform();
+        aboutLinkElem.click();
+
+
+    }
+
+    public void goToAutomationPage(){
+        AutomationPage automationPage = new AutomationPage(driver);
+        automationPage.open();
 
 
     }

@@ -1,10 +1,7 @@
 package Tests;
 
 import Base.TestBase;
-import Pages.LoginPage;
-import Pages.PricingPage;
-import Pages.SignUpPage;
-import Pages.HomePage;
+import Pages.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -81,4 +78,72 @@ public class SmokeTest extends TestBase {
       Assert.assertTrue(result);
 
    }
+
+   @Test
+   public void isLinksOnAboutPageClickable(){
+      HomePage homePage = new HomePage(getDriver());
+      AboutPage aboutPage = new AboutPage(getDriver());
+
+
+      homePage.open();
+      homePage.goToAboutPage();
+      boolean result = aboutPage.isLinksClickableOnAboutPage();
+
+      Assert.assertTrue(result);
+
+
+
+
+
+
+   }
+
+   @Test
+   public void allLinksOnAboutPage(){
+      HomePage homePage = new HomePage(getDriver());
+      AboutPage aboutPage = new AboutPage(getDriver());
+
+      homePage.open();
+      homePage.goToAboutPage();
+
+      aboutPage.findingAllLinks();
+
+   }
+
+   @Test
+   public void isAutomationPageDisplayed(){
+      AutomationPage automationPage = new AutomationPage(getDriver());
+      automationPage.open();
+
+      boolean result = automationPage.isPageDisplayed();
+
+      Assert.assertTrue(result);
+
+   }
+
+   @Test
+   public void isImagesDisplayedOnAutomationPage(){
+      AutomationPage automationPage = new AutomationPage(getDriver());
+
+
+      automationPage.open();
+      boolean result = automationPage.isImagesDisplayed();
+
+      Assert.assertTrue(result);
+
+
+   }
+
+
+
+   @Test
+   public void getAllImagesOnAutomationPage(){
+      AutomationPage automationPage = new AutomationPage(getDriver());
+      automationPage.open();
+      automationPage.allImagesOnAutomationPage();
+   }
+
+
+
+
 }
