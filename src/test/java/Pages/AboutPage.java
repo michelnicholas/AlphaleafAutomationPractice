@@ -26,6 +26,8 @@ public class AboutPage {
         return bannerText.isDisplayed();
     }
 
+
+    // Methods
     public boolean isLinksClickableOnAboutPage() {
         List<WebElement> allLinkElements = driver.findElements(loc_all_links);
         for (int i = 0; i < allLinkElements.size(); i++) {

@@ -42,7 +42,6 @@ public class HomePage {
         signUpLink.click();
     }
 
-
     public void goToPricingPage(){
         WebElement pricingLinkElem = driver.findElement(loc_pricing_link);
         Actions actions = new Actions(driver);
