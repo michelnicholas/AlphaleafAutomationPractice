@@ -24,35 +24,36 @@ public class AboutPage {
     private By loc_all_links = By.xpath("//ul");
 
 
-
-
-
-
-
     // Constructor
     public AboutPage(WebDriver inputDriver) {
         driver = inputDriver;
     }
 
-    public boolean isPageDisplayed(){
+    public boolean isPageDisplayed() {
         WebElement bannerText = driver.findElement(loc_about_trello_banner);
         return bannerText.isDisplayed();
     }
 
-
-    // Methods
     public boolean isLinksClickable() {
-        List<WebElement> allLinkButtons = driver.findElements(loc_all_links);
+        List<WebElement> allLinks = driver.findElements(loc_all_links);
         boolean result = true;
-        for (int i = 0; i < allLinkButtons.size();i++){
-            boolean isDisplayed = allLinkButtons.get(i).isEnabled();
+        for (int i = 0; i < allLinks.size(); i++) {
+            boolean isDisplayed = allLinks.get(i).isEnabled();
             result = result && isDisplayed;
         }
         return result;
-
     }
 
 
+    // Methods
+    public void isLinksOnPage() {
+        List<WebElement> allLinkButtons = driver.findElements(loc_all_links);
+        for (int i = 0; i < allLinkButtons.size(); i++) {
+            WebElement links = allLinkButtons.get(i);
+            String hrefValues = links.getAttribute("href");
+            System.out.println("Links = " + hrefValues);
+        }
 
 
+    }
 }

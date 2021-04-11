@@ -44,12 +44,12 @@ public class AutomationPage {
         driver.get(url);
     }
 
-    public Boolean isPageDisplayed(){
+    public boolean isPageDisplayed(){
         WebElement bannerText = driver.findElement(loc_auto_banner);
         return bannerText.isDisplayed();
     }
 
-    public Boolean isImagesDisplayed(){
+    public boolean isImagesDisplayed(){
         List<WebElement> allImgElements = driver.findElements(loc_all_images);
         for (int i = 0; i < allImgElements.size();i++) {
             WebElement images = allImgElements.get(i);
