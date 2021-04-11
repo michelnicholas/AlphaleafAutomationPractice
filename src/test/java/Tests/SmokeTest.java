@@ -79,75 +79,7 @@ public class SmokeTest extends TestBase {
 
    }
 
-   @Test
-   public void isLinksOnAboutPageClickable(){
-      // Test Data
-      HomePage homePage = new HomePage(getDriver());
-      AboutPage aboutPage = new AboutPage(getDriver());
 
-      // Test Steps
-      homePage.open();
-      homePage.goToAboutPage();
-      boolean result = aboutPage.isLinksClickableOnAboutPage();
-
-      // Assertions
-      Assert.assertTrue(result);
-
-
-
-
-
-
-   }
-
-   @Test
-   public void allLinksOnAboutPage(){
-      // Test Data
-      HomePage homePage = new HomePage(getDriver());
-      AboutPage aboutPage = new AboutPage(getDriver());
-
-      // Test Steps
-      homePage.open();
-      homePage.goToAboutPage();
-      aboutPage.findingAllLinks();
-
-   }
-
-   @Test
-   public void isAutomationPageDisplayed(){
-      // Test Data
-      AutomationPage automationPage = new AutomationPage(getDriver());
-
-      // Test Steps
-      automationPage.open();
-      boolean result = automationPage.isPageDisplayed();
-
-      // Assertions
-      Assert.assertTrue(result);
-
-   }
-
-   @Test
-   public void isImagesDisplayedOnAutomationPage(){
-      // Test Data
-      AutomationPage automationPage = new AutomationPage(getDriver());
-
-      // Test Steps
-      automationPage.open();
-      boolean result = automationPage.isImagesDisplayed();
-
-      // Test Assertions
-      Assert.assertTrue(result);
-
-
-   }
-
-   @Test
-   public void getAllImagesOnAutomationPage(){
-      AutomationPage automationPage = new AutomationPage(getDriver());
-      automationPage.open();
-      automationPage.allImagesOnAutomationPage();
-   }
 
 
 
