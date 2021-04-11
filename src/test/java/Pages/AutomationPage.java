@@ -69,12 +69,14 @@ public class AutomationPage {
         WebElement favoriteAppsImg  = driver.findElement(loc_favorite_apps_img);
         WebElement flowChartImg = driver.findElement(loc_flowchart_img);
         WebElement moveForwardImg = driver.findElement(loc_move_forward_img);
+        WebElement ruleBoardImg = driver.findElement(loc_rule_board_img);
 
         return butlerHeaderImg.isDisplayed() &&
                 automationTipsImg.isDisplayed() &&
                 favoriteAppsImg.isDisplayed() &&
                 flowChartImg.isDisplayed() &&
-                moveForwardImg.isDisplayed();
+                moveForwardImg.isDisplayed() &&
+                ruleBoardImg.isDisplayed();
     }
 
 
