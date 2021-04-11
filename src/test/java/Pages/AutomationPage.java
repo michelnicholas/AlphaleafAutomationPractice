@@ -3,7 +3,7 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.Test;
+
 
 import java.util.List;
 
@@ -28,15 +28,8 @@ public class AutomationPage {
     private By loc_learn_more_link = By.xpath("(//a[@href='/pricing'])[1]");
 
 
-
-
-
-
-
     // Constructor
-
     public AutomationPage(WebDriver inputDriver){driver = inputDriver;}
-
 
 
     // Methods
@@ -68,6 +61,20 @@ public class AutomationPage {
             System.out.println("Images = " + srcValues);
         }
 
+    }
+
+    public boolean isSupportedImageDisplayed() {
+        WebElement automationTipsImg = driver.findElement(loc_automation_tips_img);
+        WebElement butlerHeaderImg= driver.findElement(loc_butler_header_img);
+        WebElement favoriteAppsImg  = driver.findElement(loc_favorite_apps_img);
+        WebElement flowChartImg = driver.findElement(loc_flowchart_img);
+        WebElement moveForwardImg = driver.findElement(loc_move_forward_img);
+
+        return butlerHeaderImg.isDisplayed() &&
+                automationTipsImg.isDisplayed() &&
+                favoriteAppsImg.isDisplayed() &&
+                flowChartImg.isDisplayed() &&
+                moveForwardImg.isDisplayed();
     }
 
 

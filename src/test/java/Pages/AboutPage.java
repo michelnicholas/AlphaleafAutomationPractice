@@ -56,4 +56,18 @@ public class AboutPage {
 
 
     }
+
+    public boolean isSupportedBrowserLinksDisplayed() {
+        WebElement fogCreekLink = driver.findElement(loc_fog_creek_link);
+        WebElement atlassianLink = driver.findElement(loc_atlassian_link);
+        WebElement helpUsLink  = driver.findElement(loc_help_us_link);
+        WebElement indexVenLink = driver.findElement(loc_index_ven_link);
+        WebElement sparkCaptialLink = driver.findElement(loc_spark_captial_link);
+
+        return helpUsLink.isDisplayed() &&
+                atlassianLink.isDisplayed() &&
+                indexVenLink.isDisplayed() &&
+                fogCreekLink.isDisplayed() &&
+                sparkCaptialLink.isDisplayed();
+    }
 }
